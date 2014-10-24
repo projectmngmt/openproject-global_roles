@@ -17,8 +17,6 @@
 # Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 #++
 
-# Prevent load-order problems in case openproject-plugins is listed after a plugin in the Gemfile
-# or not at all
 require 'open_project/plugins'
 
 module OpenProject::GlobalRoles
@@ -29,9 +27,9 @@ module OpenProject::GlobalRoles
 
     register 'openproject-global_roles',
              :author_url => 'http://finn.de',
-             :requires_openproject => '>= 3.0.0'
+             :requires_openproject => '>= 4.0.0'
 
-    assets %w(global_roles.css global_roles.js)
+    assets %w(global_roles/global_roles.css global_roles/global_roles.js)
 
     patches [ :Principal, :Role, :User, :RolesController, :UsersController, :RolesHelper, :UsersHelper]
 
@@ -49,5 +47,3 @@ module OpenProject::GlobalRoles
     end
   end
 end
-
-
